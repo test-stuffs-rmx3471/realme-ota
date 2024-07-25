@@ -30,7 +30,7 @@ jobs:
     - name: Run realme-ota
       run: |
         realme-ota -h
-        realme-ota -r 3 RMX3472 RMX3472_11.F.00_0000_000000000000 5 111001
+        realme-ota -r 3 RMX3472 RMX3472_11.F.00_0000_000000000000 4 111001
         
     - name: Setup tmate session
       if: ${{ failure() }}
