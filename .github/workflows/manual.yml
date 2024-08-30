@@ -1,0 +1,22 @@
+name: Realme OTA Workflow
+
+on:
+  workflow_dispatch: # Allows you to manually trigger the workflow from GitHub
+
+jobs:
+  download-and-run:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Run Install.ps1 Script
+        shell: pwsh
+        run: |
+          Invoke-WebRequest https://raw.githubusercontent.com/R0rt1z2/realme-ota/master/Install.ps1 | Invoke-Expression
+
+      - name: Execute realme-ota Command
+        shell: pwsh
+        run: |
+          realme-ota -r 2 RMX3471 RMX3471_11.F.08_2080_202408011254 5 00011011
